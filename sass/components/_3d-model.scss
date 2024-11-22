@@ -1,11 +1,21 @@
+p,h2,h3,a{
+  color: #ffffff;
+}
+
+
 model-viewer {
   width: auto;
   max-width: 1200px;
-  height: 700px;
-  background-color: #efefef;
-  margin: 0 auto;
+  height: 600px;
+  background-color: transparent;
+  // margin: 10vh auto;
+  // background: url(../images/model-bg.gif) center no-repeat;
+ 
 }
 
+button{
+  display: none;
+}
 
 // image Divs Style
 
@@ -33,7 +43,7 @@ model-viewer {
 
 
 
-// --------
+//  --------
 
 .Hotspot {
   background: url(../images/hotspot1.gif) center no-repeat;
@@ -164,10 +174,41 @@ model-viewer > #ar-prompt > img {
   margin-bottom: 40px;
 }
 
+// model-viewer section DIV
+
+.model-viewer h2{
+  padding-top: 10vh ;
+  height: auto;
+  display: flex;
+  font-size: 30px;
+  justify-content: center;
+  border-bottom: 0.5px solid rgba(255, 255, 255, 0.25);
+}
+// .model-viewer p, .model-viewer h2 {
+  
+// }
+
+
 
 /* 768px screen */
 
 @media screen and (min-width: 768px) {
+
+  model-viewer {
+    border: none;
+    width: auto;
+    max-width: 1200px;
+    height: 600px;
+    background-color: transparent;
+    margin: 10vh auto;
+
+    
+    }
+
+    button{
+      display: block;
+    }
+
 
   #hotspot-3{
     transform: translateY(-10vh) translateX(-1vh);
@@ -183,6 +224,8 @@ model-viewer > #ar-prompt > img {
 
 
 }
+
+
 
 @media screen and (min-width: 1200px) {
 
