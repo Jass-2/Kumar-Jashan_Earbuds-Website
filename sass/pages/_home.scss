@@ -1,6 +1,12 @@
 body{
     background-color: black;
+    font-family: 'Orbitron', sans-serif;
     margin: 0;
+}
+
+a, h2, h3, p{
+    font-family: 'Orbitron', sans-serif;
+
 }
 
 // #explode-view {
@@ -137,7 +143,6 @@ button {
     color: #000000;
     text-decoration: none;
     font-size: 18px;
-    font-family: 'Montserrat-Bold', sans-serif;
     font-weight: bold;
     background-color: white;
     border-radius: 15px;
@@ -254,7 +259,21 @@ button {
 }
 
 
+// section-5
 
+.color-container{
+    display: flex;
+      flex-direction: column;
+        align-items: center;
+        justify-content: center;
+}
+
+.section5 div h2{
+    display: flex;
+    justify-content: center;
+    border-bottom: .5px solid rgba(255, 255, 255, .25);
+}
+    
 
 
 
@@ -383,7 +402,6 @@ footer {
         color: rgb(255, 255, 255);
         text-decoration: none;
         font-size: 18px;
-        font-family: 'Montserrat-Bold', sans-serif;
         font-weight: bold;
         background-color: transparent;
         /* align-items: center; */
