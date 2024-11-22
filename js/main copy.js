@@ -1,6 +1,5 @@
 (() => {
-
-
+  // --- Variables for Model and Hotspots ---
   const model = document.querySelector("#model");
   const hotspots = document.querySelectorAll(".Hotspot");
 
@@ -57,98 +56,71 @@
 
 
 
-
-  // png nimation
+  
+  // --- Explode View Animation ---
   const canvas = document.querySelector("#explode-view");
   const ctx = canvas.getContext("2d");
 
-  function canvasSize(){
+  function setCanvasSize(){
     canvas.width = window.innerWidth; 
     canvas.height = window.innerWidth * 9 / 16;
   }
   
 
-  canvasSize();
+  setCanvasSize();
 
-  window.addEventListener('resize', canvasSize);
+  window.addEventListener('resize', setCanvasSize);
 
-  const frameCount = 251; // how many still images
-  const images = []; // array to hold images
+  const frameCount = 233; // Total number of frames
+  const images = []; // Array to hold images
 
-  // fill the array with images and point to the images
   for (let i = 0; i < frameCount; i++) {
-      const img = new Image();
-      img.src = `images/earbuds-png-frame${(i + 1).toString().padStart(4, '0')}.png`;
-      images.push(img);
+    const img = new Image();
+    img.src = `images/earbuds-png-frame${(i + 1).toString().padStart(4, '0')}.png`;
+    images.push(img);
   }
 
   const buds = {
-      frame: 0
+    frame: 0
   };
 
-  // greensock works as the number that you get is decimals o,0.5 but ours work as whole number so gsock uses snap property
   gsap.to(buds, {
-      frame: 250,
-      snap: "frame",
-      scrollTrigger: { // Fixed syntax error: added colon
-          trigger: "#explode-view",
-          pin: true,
-          scrub: 3,
-          markers: true,
-          start: "top top",
-          // pinSpacing: false,
-
-      },
-      onUpdate: render
+    frame: 232,
+    snap: "frame",
+    scrollTrigger: {
+      trigger: "#explode-view",
+      pin: true,
+      scrub: 2,
+      markers: true,
+      start: "top top"
+    },
+    onUpdate: render
   });
 
-
-  // when images is first loaded into the array, call the render function->
-  images[0].addEventListener("load", render)
-
-
+  images[0].addEventListener("load", render);
 
   function render() {
-      //ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear the canvas
-      //ctx.drawImage(images[buds.frame], 0, 0, canvas.width, canvas.height); // Draw the current frame
-      console.log(buds.frame);
-      console.log(images[buds.frame]);
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.drawImage(images[buds.frame], 0, 0, canvas.width, canvas.height);
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.drawImage(images[buds.frame], 0, 0);
   }
-
-
-
 
   
 
- const links = document.querySelectorAll(".nav-item > a");
-for (let i = 0; i < links.length; i++) {
-    links[i].onclick = function (e) {
-        e.preventDefault();
-        
-        const targetId = links[i].getAttribute("data-link");
-        const targetElement = document.getElementById(targetId.replace("#", ""));
-
-        if (targetElement) {
-            // Calculate the offset position
-            const rect = targetElement.getBoundingClientRect();
-            const offset = window.innerHeight / 2 - rect.height / 2; // Center the section
-
-            window.scrollTo({
-                top: window.scrollY + rect.top - offset,
-                behavior: "smooth"
-            });
-        }
-    };
-}
 
 
 
 
 
+//slider
+  const divisor = document.querySelector('#divisor');
+  const slider = document.querySelector('#slider');
+
+  function moveDivisor() {
+      console.log(slider.value);
+      //divisor.style.width. = slider.value+"%";
+      divisor.style.width = `${slider.value}%`;
+  }
+
+
+  slider.addEventListener("input", moveDivisor);
 })();
-
-
-
-
