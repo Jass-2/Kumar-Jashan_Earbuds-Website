@@ -94,7 +94,7 @@
           trigger: "#explode-view",
           pin: true,
           scrub: 3,
-          markers: true,
+          // markers: true,
           start: "top top",
           // pinSpacing: false,
 
